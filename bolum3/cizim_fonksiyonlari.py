@@ -22,6 +22,9 @@ cv2.line(canvas,(256,256),(400,400),(0,255,0),thickness=2)
 
 cv2.circle(canvas,centerPoint(),circleRadius(),blueColor(),thickness=3)
 
+font1 = cv2.FONT_ITALIC
+
+cv2.putText(canvas,"Eren",(0,100),font1,4,redColor(),cv2.LINE_AA)
 
 cv2.imshow("Canvas",canvas)
 cv2.waitKey(0)
