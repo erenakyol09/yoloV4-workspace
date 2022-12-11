@@ -1,10 +1,12 @@
-from typing import List, Any
+#https://www.irjet.net/archives/V9/i3/IRJET-V9I375.pdf
+#https://github.com/bamwani/vehicle-counting-using-python-yolo
+#https://www.hindawi.com/journals/mpe/2021/1577614/
 
 import cv2
 import numpy as np
 
 # Load YOLO Algorithm
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
+net = cv2.dnn.readNet("yolov3_2.weights", "yolov3_2.cfg")
 # To load all objects that have to be detected
 classes = []
 with open("coco.names", "r") as f:
@@ -17,10 +19,10 @@ output_layers=[]
 for i in net.getUnconnectedOutLayers():
     output_layers.append(layer_names[i - 1])
 # Loading the Image
-img = cv2.imread("trafik2.jpg")
+img = cv2.imread("trafik9.png")
 height, width, channels = img.shape
 # Extracting features to detect objects
-blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+blob = cv2.dnn.blobFromImage(img, 0.00392, (608, 608), (0, 0, 0), True, crop=False)
 # Inverting blue with red
 # bgr->rgb
 # We need to pass the img_blob to the algorithm
